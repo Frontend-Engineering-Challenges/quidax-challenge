@@ -1,0 +1,171 @@
+// Grow on Hover
+.hvr-grow {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    position: relative;
+    z-index: 1;
+
+    @media @tablet {
+        &:hover, &:focus, &:active {
+            -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+            z-index: 3;
+        }
+    }
+}
+  
+
+/* Glow */
+.hvr-glow {
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: box-shadow;
+    transition-property: box-shadow;
+
+    &:hover, &:focus, &:active {
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+    }
+}
+
+
+/* Float */
+.hvr-float {
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+
+    &:hover, &:focus, &:active {
+        -webkit-transform: translateY(-20px);
+        transform: translateY(-20px);
+    }
+}
+
+
+// KenBurns
+.hvr-kenburns {
+
+    img {
+        -webkit-transition-duration: 1s;
+        transition-duration: 1s;
+        -webkit-transition-property: transform;
+        transition-property: transform;
+        -webkit-transition-timing-function: ease-out;
+        transition-timing-function: ease-out;
+        position: relative;
+    }
+
+    .overlay {
+        &:before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, .3);
+            z-index: 3;
+            -webkit-transition-duration: 1s;
+            transition-duration: 1s;
+            -webkit-transition-property: transform;
+            transition-property: transform;
+            -webkit-transition-timing-function: ease-out;
+            transition-timing-function: ease-out;
+        }
+    }
+
+    &:hover, &:focus, &:active {
+        img {
+            -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+        }
+
+        .overlay {
+            &:before {
+                background: rgba(0, 0, 0, 0);
+            }
+        }
+    }
+
+}
+
+// Fade
+.hvr-fade {
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    overflow: hidden;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: color, background-color;
+    transition-property: color, background-color;
+
+    &:hover, &:focus, &:active {
+        background-color: @alternate;
+        color: @white;
+    }
+}
+  
+// Infinite Background Scroll
+.slide-container {
+    overflow: hidden;
+
+    .sliding-background {
+        height: fit-content;
+        width: 5076px;
+        display: flex;
+        animation: slide 60s linear infinite;
+        overflow-x: hidden;
+        
+        @media @tablet {
+            &:hover {
+                animation-play-state: paused;
+            }
+        }
+
+        @keyframes slide {
+            0% {
+              transform: translate3d(0, 0, 0);
+            }
+            100% {
+              transform: translate3d(-1692px, 0, 0);
+            }
+        }
+
+        .canvas {
+            width: 1680px;
+            height: fit-content;
+        
+            img {
+                width: 80px;
+                margin: 0;
+                margin-top: -3px;
+            }
+        }
+    } 
+}
+
+
+  
