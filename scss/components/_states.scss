@@ -1,0 +1,16 @@
+// Styling for the different states
+
+// Responsive Search
+.top-navigation {
+    &.alt-nav {
+        @media #{ $mobile-max } {
+            & > div {
+                display: none;
+            }
+    
+            & > .search-wrap {
+                display: flex;
+            }
+        }
+    }
+}

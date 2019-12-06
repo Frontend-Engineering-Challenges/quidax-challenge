@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "server": "live-server",
+    "scss": "node-sass --watch scss -o css"
   },
   "repository": {
     "type": "git",
@@ -17,8 +18,9 @@
     "url": "https://github.com/Ofega/quidax-challenge/issues"
   },
   "homepage": "https://github.com/Ofega/quidax-challenge#readme",
-  "dependencies": {
-    "less": "^3.10.3",
-    "less-watch-compiler": "^1.14.1"
+  "dependencies": {},
+  "devDependencies": {
+    "live-server": "^1.2.1",
+    "node-sass": "^4.13.0"
   }
 }

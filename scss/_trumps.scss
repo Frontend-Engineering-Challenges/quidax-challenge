@@ -1,0 +1,136 @@
+// 
+    // Trumps/Utilities
+
+    // @package devx
+    // @author  Kabolobari Benakole <i@kb.life>
+    // @version 1.0.0
+
+
+// Positioning
+.absolute-zero {
+    position:           absolute;
+    top:                0;
+    right:              0;
+    bottom:             0;
+    left:               0;
+}
+.absolute-middle {
+    position:           absolute;
+    top:                50%;
+    left:               50%;
+    transform:          translate( -50%, -50% );
+}
+
+// Dimensions
+.width-100-pc {
+    width: 100%;
+}
+.height-100-pc {
+    height: 100%;
+}
+
+// Display
+.d-blk {
+    display:            block;
+}
+.d-ibl {
+    display:            inline-block;
+}
+.d-flx {
+    display:            flex;
+}
+.al-i-c {
+    align-items:        center;
+}
+.j-c-sb {
+    justify-content:    space-between;
+}
+
+
+//Padding
+.p-1 {
+    padding: 1rem;
+}
+.px-1 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.py-1 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+.pl-1 {
+    padding-left: 1rem;
+}
+.pr-1 {
+    padding-right: 1rem;
+}
+.pt-1 {
+    padding-top: 1rem;
+}
+.pb-1 {
+    padding-bottom: 1rem;
+}
+
+//Margin
+.ml-1 {
+    margin-left: 1rem;
+}
+.ml-1h {
+    margin-left: 1.5rem;
+}
+
+// Media Query Utilities
+.show-tabletup {
+    display: none;
+
+    @media #{ $tablet } {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.hide-tabletup {
+    display: flex;
+    flex-direction: column;
+
+    @media #{ $tablet } {
+        display: none;
+    }
+}
+
+.show-pretabletup {
+    display: none;
+
+    @media #{ $pre-tablet } {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.hide-pretabletup {
+    display: flex;
+    flex-direction: column;
+
+    @media #{ $pre-tablet } {
+        display: none;
+    }
+}
+
+.show-mobile {
+    display: none;
+
+    @media #{ $mobile } {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.hide-mobile {
+    display: flex;
+    flex-direction: column;
+
+    @media #{ $mobile } {
+        display: none;
+    }
+}

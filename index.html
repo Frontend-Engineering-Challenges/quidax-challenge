@@ -4,14 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans:500|Lato&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700i&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="./css/index.css">
     <title>Quidax Challenge</title>
 </head>
 <body>
-    <nav>
-        
+    <!-- Top Navigation -->
+    <nav class="d-flx al-i-c j-c-sb top-navigation">
+        <div class="d-flx al-i-c">
+            <button class="hide-tabletup toggle-mobile-nav" aria-label="Toggle Navigation">
+                <span class="slats"></span>
+            </button>
+            <div class="d-flx al-i-c">
+                <img src="./assets/images/quidax-logo.png" class="avatar is-small" alt="Quidax Book Club Logo">
+                <div class="ml-1h show-tabletup">
+                    <h2 class="mediumtext">Quidax Book Club</h2>
+                    <p class="picotext">Admin</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="search-wrap">
+            <button class="btn btn-tranparent thumbnail is-nano hide-mobile">
+                <img src="./assets/icons/arrow-left.svg" class="width-100-pc height-100-pc" alt="Left Arrow Icon">
+            </button>
+
+            <div class="search-container width-100-pc">
+                <form class="d-flx al-i-c j-c-sb">
+                    <input type="text" name="Book Search" id="mainSearchInput" placeholder="Search books, genres, authors, etc.">
+                    <button type="button">
+                        <img src="./assets/icons/search.svg" alt="Search Icon">
+                    </button>
+                </form>
+                <ul class="search-autocomplete"></ul>
+            </div>
+        </div>
+
+        <div class="d-flx al-i-c j-c-sb">
+            <button class="btn btn-tranparent thumbnail is-nano hide-mobile">
+                <img src="./assets/icons/search.svg" class="width-100-pc height-100-pc" alt="Search Icon">
+            </button>
+            <a href="/" class="d-ibl thumbnail is-micro">
+                <img src="./assets/icons/books.svg" class="width-100-pc" alt="Books Icon">
+            </a>
+            <button class="btn btn-tranparent thumbnail is-micro notification-icon">
+                <img src="./assets/icons/bell.svg" class="width-100-pc height-100-pc" alt="Bell Icon">
+                <span>3</span>
+            </button>
+            <a href="/" class="d-ibl ml-1h avatar is-small bg-primary user-avatar">
+                <span>CN</span>
+                <img src="./assets/images/profile-avatar.jpg" class="obj-fit-cover avatar is-small" alt="User profile photo">
+            </a>
+        </div>
     </nav>
 
     <main></main>

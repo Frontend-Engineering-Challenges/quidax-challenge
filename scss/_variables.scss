@@ -1,0 +1,59 @@
+// Colors
+$readableGray: #aaaaaa;
+$faintGray: #f9f9f9;
+$borderGray: #ddd;
+$white: #fff;
+$black: #000;
+$overlayBlack: rgba(0, 0, 0, .3);
+$primary: #65c100; 
+$primaryColorBg: rgba(56, 180, 170, .6);
+$alternate: #2098D1;
+
+//Font
+$headingFont: 'Source Sans Pro', sans-serif;
+$bodyFont: 'Source Sans Pro', sans-serif;
+
+$defaultFontSize: 15.025px;      
+$picofont: 1.375rem;
+$nanofont: 1.675rem;
+$microfont: 1.775rem;
+$smallfont: 1.875rem;
+$mediumfont: 1.975rem;
+
+
+//Spacing
+$space-xxs: 1.24rem;
+$space-xs: 1.48rem;
+$space-sm: 2.56rem;
+$space-md: 3.96rem;
+$space-lg: 4.72rem;
+$space-xl: 5.64rem;
+$space: 2.08rem;
+
+
+//Media Queries
+$mobile: "only screen and (min-width: 650px)";
+$mobile-max: "only screen and (max-width: 649px)";
+$pre-tablet: "only screen and (min-width: 800px)";
+$tablet: "only screen and (min-width: 1140px)";
+$laptop: "only screen and (min-width: 1560px)";
+
+
+//Mixins
+@mixin flx-col-center() {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@mixin flx-center-sb() {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@mixin flx-center-center() {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
