@@ -89,7 +89,7 @@ ul {
       position: relative; }
 
 .side-navigation {
-  min-height: 100vh;
+  height: 100vh;
   background: #fefefe;
   overflow-y: auto;
   border-right: 1px solid #fefefe;
@@ -213,12 +213,15 @@ ul {
       background: #fbfbfb;
       padding: 10px; }
 
-.main-layout .content {
-  background: #fbfbfb;
-  width: 100%;
+.main-layout {
   height: 100vh;
-  overflow-y: auto;
-  padding: 2.56rem 0 3.96rem; }
+  overflow: hidden; }
+  .main-layout .content {
+    background: #fbfbfb;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    padding: 2.56rem 0 3.96rem; }
 
 .picotext {
   font-size: 1.375rem; }
