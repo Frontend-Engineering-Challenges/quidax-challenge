@@ -6,9 +6,33 @@ const searchResults = [
     "No Excuses - Brian Tracy"
 ]
 
+const books = [
+    {
+        name: 'Big Magic',
+        image: '../assets/images/big-magic.png'
+    },
+    {
+        name: 'Effective Python',
+        image: '../assets/images/effective-python.png'
+    },
+    {
+        name: 'Built to Last',
+        image: '../assets/images/built-to-last.png'
+    },
+    {
+        name: 'The Lean Startup',
+        image: '../assets/images/the-lean-startup.png'
+    },
+    {
+        name: 'The effective engineer',
+        image: '../assets/images/the-effective-engineer.png'
+    }
+]
+
 
 module.exports = {
-    searchResults
+    searchResults,
+    books
 }
 },{}],2:[function(require,module,exports){
 const data = require('./data');
@@ -16,6 +40,7 @@ const data = require('./data');
 const topNav = document.querySelector('.top-navigation');
 const searchInput = document.querySelector('#mainSearchInput');
 const navOverlay = document.querySelector('.nav-overlay');
+const slider = document.querySelector('.main-carousel');
 const searchToggleBtns = document.querySelectorAll('[toggle-search]');
 const navToggleBtns = document.querySelectorAll('[toggle-nav]');
 
@@ -32,6 +57,21 @@ const toggleNav = () => {
     document.body.classList.toggle('open-drawer');
 }
 
+const renderCarousel = () => {
+    const fragment = document.createDocumentFragment();
+
+    data.books.forEach(book => {
+        const div = document.createElement('div'); 
+        div.classList.add('carousel-cell');
+        div.innerHTML = `
+            <img src="${book.image}" alt="${book.name} Book Cover">
+        `
+        fragment.appendChild(div); 
+    })
+    
+    slider.appendChild(fragment);
+};
+
 
 // Event Listeners
 searchToggleBtns.forEach(btn => {
@@ -45,8 +85,11 @@ navToggleBtns.forEach(btn => {
 navOverlay.addEventListener('click', toggleNav);
 
 
-// element argument can be a selector string
-//   for an individual element
+//Function Calls
+renderCarousel();
+
+
+//Configurations
 var flkty = new Flickity( '.main-carousel', {
     cellAlign: 'left',
     contain: true,

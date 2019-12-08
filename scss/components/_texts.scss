@@ -15,3 +15,12 @@
 .mediumtext {
     font-size: $mediumfont;
 }
+
+.heading {
+    font-size: $nanofont;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin: 0 $space-md $space-sm;
+    padding-bottom: $space-xs;
+    border-bottom: 1px solid $faintGray;
+}
