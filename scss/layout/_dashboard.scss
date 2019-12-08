@@ -8,5 +8,12 @@
         height: 100%;
         overflow-y: auto;
         padding: $space-sm 0 $space-md;
+
+        & > div {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            position: relative;
+        }
     }
 }
