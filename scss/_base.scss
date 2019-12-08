@@ -8,9 +8,16 @@ html {
     font-size: 62.5%
 }
 
+@supports (font-variation-settings: normal) {
+    html { 
+        font-family: 'Inter var', sans-serif; 
+    }
+}
+
 body {
     font-family: $bodyFont;
-    overflow-x: hidden;
+    overflow: hidden;
+    height: 100vh;
 
     &.fixed {
         position: fixed;

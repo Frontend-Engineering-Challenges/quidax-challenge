@@ -32,9 +32,13 @@
     @include flx-col-center();
     padding: 9px;
 
+    &.is-pico {
+        width:              30px;
+        height:             30px;
+    }
     &.is-nano {
-        width:              35px;
-        height:             35px;
+        width:              37px;
+        height:             37px;
     }
     &.is-micro {
         width:              42px;

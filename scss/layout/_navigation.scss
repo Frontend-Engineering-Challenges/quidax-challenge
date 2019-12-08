@@ -1,9 +1,12 @@
 // === NavBar Component ===
 .top-navigation {
     min-height: 70px;
+    position: relative;
+    z-index: 2;
     padding: $space-xs $space;
     background: $white;
-    box-shadow: 0 1px 3px 0 rgba(50, 50, 83, 0.07);
+    box-shadow: 0 3px 15px 0px rgba(50, 50, 83, 0.05);
+    border-bottom: 1px solid $faintGray;
 
     @media #{ $tablet } {
         padding: $space $space-md;
@@ -28,13 +31,6 @@
 
         span {
             position: absolute;
-            display: inline-block;
-            background: $primary;
-            color: $white;
-            border-radius: 50%;
-            top: 5px;
-            right: 5px;
-            padding: 0 .5rem;
             font-size: $picofont;
         }
     }
@@ -60,6 +56,93 @@
     }
 }
 
+.side-navigation {
+    min-height: 100vh;
+    background: $primaryGrey;
+    overflow-y: auto;
+    border-right: 1px solid $primaryGrey;
+    box-shadow: 1px 0px 15px 0px rgba(50, 50, 83, 0.05);
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 100%;
+    z-index: 3;
+    max-width: 300px;
+    transition: all 0.25s linear;
+
+    @media #{ $mobile } {
+        left: -350px;
+        max-width: 350px;
+    }
+
+    @media #{ $tablet } {
+        z-index: 1;
+        display: block;
+        max-width: 350px;
+        position: sticky;
+        top: unset;
+    }
+
+    & > div {
+        padding: $space $space-md;
+        padding-right: $space-sm;
+        border-bottom: 1px solid $faintGray;
+        
+        &:first-of-type,
+        &:last-of-type {
+            border-bottom: none;
+        }
+
+        &:last-of-type {
+            margin-bottom: $space-sm;
+        }
+
+        & > button {
+            margin: 0 0 $space-md;
+            padding-left: 0;
+        }
+
+        a,
+        h3 {
+            color: $black;
+            font-size: $nanofont;
+        }
+
+        h3 {
+            font-weight: 700;
+            margin: .5rem 0 2rem;
+        }
+
+        a {
+            margin-bottom: .85rem;
+            @include flx-center-sb();
+    
+            &.is-active,
+            &:hover {
+                color: $primary;
+            }
+
+            span {
+                color: $readableGray;
+                font-size: $picofont;
+
+                &.badge {
+                    color: $white;
+                    padding: .1rem .8rem;
+                    margin-right: -7px;
+                    border-radius: 45%;               
+                }
+            }
+        }
+
+        li:last-of-type {
+            a {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
 .search-wrap {
     width: 100%;
     display: none;
@@ -80,6 +163,36 @@
     & > button {
         margin-right: 3rem;
         padding-left: 0;
+    }
+
+    .autocomplete {
+        width: 100%;
+        padding: 2rem;
+        position: absolute;
+        bottom: -4.2rem;
+        left: 0;
+        right: 0;
+        border: 1px solid $faintGray;
+        background: $white;
+        color: $readableGray;
+        z-index: 2;  
+        
+        @media #{ $mobile } {
+            max-width: 350px;
+            left: unset;
+            right: unset;
+            bottom: -2.6rem;
+        }
+    
+        @media #{ $pre-tablet } {
+            max-width: 480px;
+            bottom: -2.1rem;
+        }
+    
+        @media #{ $tablet } {
+            max-width: 530px;
+            bottom: -1.5rem;
+        }
     }
 
     form {
@@ -108,7 +221,7 @@
             outline: none;
             border: 1px solid $borderGray;
             border-left: none;
-            background: $faintGray;
+            background: $primaryBg;
             padding: 10px;
         }
     }

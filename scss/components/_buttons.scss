@@ -22,6 +22,15 @@
 
 }
 
+.badge {
+    display: inline-block;
+    background: $primary;
+    color: $white;
+    border-radius: 50%;
+    top: 5px;
+    right: 5px;
+    padding: 0 .5rem;
+}
 
 .slats {
     pointer-events:         none;
