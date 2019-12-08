@@ -1,11 +1,10 @@
-// const data = require('./data');
+const data = require('./data');
 
 const topNav = document.querySelector('.top-navigation');
 const searchInput = document.querySelector('#mainSearchInput');
 const navOverlay = document.querySelector('.nav-overlay');
 const searchToggleBtns = document.querySelectorAll('[toggle-search]');
 const navToggleBtns = document.querySelectorAll('[toggle-nav]');
-// const autoComplete = document.querySelector('.search-container .autocomplete');
 
 
 const toggleSearch = () => {
@@ -21,7 +20,6 @@ const toggleNav = () => {
 }
 
 
-
 // Event Listeners
 searchToggleBtns.forEach(btn => {
     btn.addEventListener('click', toggleSearch);
@@ -32,3 +30,19 @@ navToggleBtns.forEach(btn => {
 });
 
 navOverlay.addEventListener('click', toggleNav);
+
+
+// element argument can be a selector string
+//   for an individual element
+var flkty = new Flickity( '.main-carousel', {
+    cellAlign: 'left',
+    contain: true,
+    draggable: true,
+    wrapAround: true,
+    arrowShape: { 
+        x0: 10,
+        x1: 60, y1: 50,
+        x2: 60, y2: 40,
+        x3: 60
+    }
+});
