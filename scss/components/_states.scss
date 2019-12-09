@@ -31,3 +31,10 @@
         left: 0;
     }
 }
+
+//Mobile Nav Color Change on Search
+.change-nav-bg {
+    @media #{ $mobile-max } {
+        background: $faintGray;
+    }
+}

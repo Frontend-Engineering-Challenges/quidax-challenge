@@ -168,10 +168,11 @@ ul {
     width: 100%;
     padding: 2rem;
     position: absolute;
-    bottom: -4.2rem;
+    top: 69px;
     left: 0;
     right: 0;
     border: 1px solid #f2f2f2;
+    border-top: none;
     background: #fff;
     color: #aaaaaa;
     z-index: 2; }
@@ -180,15 +181,22 @@ ul {
         max-width: 350px;
         left: unset;
         right: unset;
-        bottom: -2.6rem; } }
+        top: unset; } }
     @media only screen and (min-width: 800px) {
       .search-wrap .autocomplete {
-        max-width: 480px;
-        bottom: -2.1rem; } }
+        max-width: 480px; } }
     @media only screen and (min-width: 1140px) {
       .search-wrap .autocomplete {
-        max-width: 530px;
-        bottom: -1.5rem; } }
+        max-width: 530px; } }
+    .search-wrap .autocomplete .autocomplete-items {
+      margin-bottom: 1.5rem;
+      font-size: 1.525rem;
+      color: #aaaaaa;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden; }
+      .search-wrap .autocomplete .autocomplete-items:last-of-type {
+        margin-bottom: 0; }
   .search-wrap form {
     width: 100%;
     height: 40px; }
@@ -222,11 +230,15 @@ ul {
     height: 100%;
     overflow-y: auto;
     padding: 2.56rem 0 3.96rem; }
-    .main-layout .content > div {
+    .main-layout .content > .section-wraps {
       max-width: 1200px;
       width: 100%;
       margin: 0 auto;
-      position: relative; }
+      position: relative;
+      margin-top: 4.72rem; }
+      .main-layout .content > .section-wraps:first-of-type {
+        margin-top: 0;
+        margin-bottom: 8rem; }
 
 .picotext {
   font-size: 1.375rem; }
@@ -347,6 +359,9 @@ ul {
 .co-primary {
   color: #65c100; }
 
+.co-readable-gray {
+  color: #aaaaaa; }
+
 .bg-primary {
   background: rgba(56, 180, 170, 0.6); }
 
@@ -431,6 +446,10 @@ ul {
 
 .open-drawer .side-navigation {
   left: 0; }
+
+@media only screen and (max-width: 649px) {
+  .change-nav-bg {
+    background: #f2f2f2; } }
 
 .absolute-zero {
   position: absolute;

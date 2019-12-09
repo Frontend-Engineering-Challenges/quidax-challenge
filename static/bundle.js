@@ -37,12 +37,14 @@ module.exports = {
 },{}],2:[function(require,module,exports){
 const data = require('./data');
 
-const topNav = document.querySelector('.top-navigation');
-const searchInput = document.querySelector('#mainSearchInput');
-const navOverlay = document.querySelector('.nav-overlay');
+
 const slider = document.querySelector('.main-carousel');
-const searchToggleBtns = document.querySelectorAll('[toggle-search]');
+const topNav = document.querySelector('.top-navigation');
+const navOverlay = document.querySelector('.nav-overlay');
+const autocomplete = document.querySelector('.autocomplete');
+const searchInput = document.querySelector('#mainSearchInput');
 const navToggleBtns = document.querySelectorAll('[toggle-nav]');
+const searchToggleBtns = document.querySelectorAll('[toggle-search]');
 
 
 const toggleSearch = () => {
@@ -55,6 +57,10 @@ const toggleSearch = () => {
 
 const toggleNav = () => {
     document.body.classList.toggle('open-drawer');
+}
+
+const toggleAutocomplete = () => {
+    autocomplete.classList.toggle('d-none');
 }
 
 const renderCarousel = () => {
@@ -83,6 +89,30 @@ navToggleBtns.forEach(btn => {
 });
 
 navOverlay.addEventListener('click', toggleNav);
+
+searchInput.addEventListener('input', (e) => {
+    const autocompleteClassList = autocomplete.classList;
+    const topNavClassList = topNav.classList;
+
+    if(e.target.value.length >= 1) {
+        topNavClassList.add('change-nav-bg');
+        autocompleteClassList.remove('d-none');
+    } else {
+        topNavClassList.remove('change-nav-bg');
+        autocompleteClassList.add('d-none');
+    }
+});
+
+document.body.addEventListener('click', (e) => {
+    const inputEvt = searchInput.contains(e.target);
+    const autocompleteEvt = autocomplete.contains(e.target);
+
+    if (!autocomplete.classList.contains('d-none') && (!inputEvt || !autocompleteEvt)) {
+        searchInput.value = '';
+        topNav.classList.remove('change-nav-bg');
+        autocomplete.classList.add('d-none');
+    }
+});
 
 
 //Function Calls

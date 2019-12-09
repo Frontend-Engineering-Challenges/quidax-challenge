@@ -169,29 +169,41 @@
         width: 100%;
         padding: 2rem;
         position: absolute;
-        bottom: -4.2rem;
+        top: 69px;
         left: 0;
         right: 0;
         border: 1px solid $faintGray;
+        border-top: none;
         background: $white;
         color: $readableGray;
-        z-index: 2;  
+        z-index: 2; 
         
         @media #{ $mobile } {
             max-width: 350px;
             left: unset;
             right: unset;
-            bottom: -2.6rem;
+            top: unset;
         }
     
         @media #{ $pre-tablet } {
             max-width: 480px;
-            bottom: -2.1rem;
         }
     
         @media #{ $tablet } {
             max-width: 530px;
-            bottom: -1.5rem;
+        }
+
+        .autocomplete-items {
+            margin-bottom: 1.5rem;
+            font-size: $nanofont;
+            color: $readableGray;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+
+            &:last-of-type {
+                margin-bottom: 0;
+            }
         }
     }
 

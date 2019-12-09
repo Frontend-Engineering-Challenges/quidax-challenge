@@ -9,11 +9,17 @@
         overflow-y: auto;
         padding: $space-sm 0 $space-md;
 
-        & > div {
+        & > .section-wraps {
             max-width: 1200px;
             width: 100%;
             margin: 0 auto;
             position: relative;
+            margin-top: $space-lg;
+
+            &:first-of-type {
+                margin-top: 0;
+                margin-bottom: 8rem;
+            }
         }
     }
 }
