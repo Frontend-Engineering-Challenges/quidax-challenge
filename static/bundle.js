@@ -9,23 +9,172 @@ const searchResults = [
 const books = [
     {
         name: 'Big Magic',
-        image: '../assets/images/big-magic.png'
+        image: '../assets/images/big-magic.png',
+        available: true,
+        author: ["Elizabeth Gilbert"],
+        year: 2014,
+        genre: ["Business", "Entrepreneurship"],
+        labels: ["Creative", "Self-help"],
+        ratings: 4.0,
+        borrowed: 31,
+        likes: 29,
+        featured: true
     },
     {
         name: 'Effective Python',
-        image: '../assets/images/effective-python.png'
+        image: '../assets/images/effective-python.png',
+        available: true,
+        author: ["Diomidis Spinellis"],
+        year: null,
+        genre: ["Motivational"],
+        labels: ["Creative", "Self-help"],
+        ratings: 4.0,
+        borrowed: 31,
+        likes: 29,
+        featured: true
     },
     {
-        name: 'Built to Last',
-        image: '../assets/images/built-to-last.png'
+        name: 'Built To Last',
+        image: '../assets/images/built-to-last.png',
+        available: false,
+        author: ["Jim Collins", "Jerry I. Porras"],
+        year: 2001,
+        genre: ["Business", "Entrepreneurship"],
+        labels: ["Creative", "Self-help"],
+        ratings: 4.0,
+        borrowed: 31,
+        likes: 29,
+        featured: true
     },
     {
         name: 'The Lean Startup',
-        image: '../assets/images/the-lean-startup.png'
+        image: '../assets/images/the-lean-startup.png',
+        available: true,
+        author: ["Eric Reis"],
+        year: 2005,
+        genre: ["Motivational"],
+        labels: ["Creative", "Self-help"],
+        ratings: 4.0,
+        borrowed: 31,
+        likes: 29,
+        featured: true
     },
     {
-        name: 'The effective engineer',
-        image: '../assets/images/the-effective-engineer.png'
+        name: 'The Effective Engineer',
+        image: '../assets/images/the-effective-engineer.png',
+        available: true,
+        author: ["Edmond Lau"],
+        year: 2009,
+        genre: ["Motivational"],
+        labels: ["Creative", "Self-help"],
+        ratings: 4.0,
+        borrowed: 31,
+        likes: 29,
+        featured: true
+    },
+    {
+        name: 'Big Magic',
+        image: '../assets/images/big-magic.png',
+        available: true,
+        author: ["Elizabeth Gilbert"],
+        year: 2014,
+        genre: ["Business", "Entrepreneurship"],
+        labels: ["Creative", "Self-help"],
+        ratings: 4.0,
+        borrowed: 31,
+        likes: 29,
+        featured: true
+    },
+    {
+        name: 'Effective Python',
+        image: '../assets/images/effective-python.png',
+        available: true,
+        author: ["Diomidis Spinellis"],
+        year: null,
+        genre: ["Motivational"],
+        labels: ["Creative", "Self-help"],
+        ratings: 4.0,
+        borrowed: 31,
+        likes: 29,
+        featured: true
+    },
+    {
+        name: 'Built To Last',
+        image: '../assets/images/built-to-last.png',
+        available: false,
+        author: ["Jim Collins", "Jerry I. Porras"],
+        year: 2001,
+        genre: ["Business", "Entrepreneurship"],
+        labels: ["Creative", "Self-help"],
+        ratings: 4.0,
+        borrowed: 31,
+        likes: 29,
+        featured: true
+    },
+    {
+        name: 'The Lean Startup',
+        image: '../assets/images/the-lean-startup.png',
+        available: true,
+        author: ["Eric Reis"],
+        year: 2005,
+        genre: ["Motivational"],
+        labels: ["Creative", "Self-help"],
+        ratings: 4.0,
+        borrowed: 31,
+        likes: 29,
+        featured: true
+    },
+    {
+        name: 'The Effective Engineer',
+        image: '../assets/images/the-effective-engineer.png',
+        available: true,
+        author: ["Edmond Lau"],
+        year: 2009,
+        genre: ["Motivational"],
+        labels: ["Creative", "Self-help"],
+        ratings: 4.0,
+        borrowed: 31,
+        likes: 29,
+        featured: true
+    },
+    {
+        name: 'Built To Last',
+        image: '../assets/images/built-to-last.png',
+        available: false,
+        author: ["Jim Collins", "Jerry I. Porras"],
+        year: 2001,
+        genre: ["Business", "Entrepreneurship"],
+        labels: ["Creative", "Self-help"],
+        ratings: 4.0,
+        borrowed: 31,
+        likes: 29,
+        featured: false
+    },
+    {
+        name: 'The Lean Startup',
+        image: '../assets/images/the-lean-startup.png',
+        available: true,
+        author: ["Eric Reis"],
+        year: 2005,
+        genre: ["Motivational"],
+        labels: ["Creative", "Self-help"],
+        ratings: 4.0,
+        borrowed: 31,
+        likes: 29,
+        featured: false
+    },
+    {
+        name: 'The Effective Engineer',
+        image: '../assets/images/the-effective-engineer.png',
+        available: true,
+        author: ["Edmond Lau"],
+        year: 2009,
+        genre: ["Motivational"],
+        labels: ["Creative", "Self-help"],
+        ratings: 4.0,
+        borrowed: 31,
+        likes: 29,
+        featured: false
     }
 ]
 
@@ -59,21 +208,19 @@ const toggleNav = () => {
     document.body.classList.toggle('open-drawer');
 }
 
-const toggleAutocomplete = () => {
-    autocomplete.classList.toggle('d-none');
-}
-
 const renderCarousel = () => {
     const fragment = document.createDocumentFragment();
 
-    data.books.forEach(book => {
-        const div = document.createElement('div'); 
-        div.classList.add('carousel-cell');
-        div.innerHTML = `
-            <img src="${book.image}" alt="${book.name} Book Cover">
-        `
-        fragment.appendChild(div); 
-    })
+    data.books
+        .filter(book => book.featured)
+        .forEach(book => {
+            const div = document.createElement('div'); 
+            div.classList.add('carousel-cell');
+            div.innerHTML = `
+                <img src="${book.image}" alt="${book.name} Book Cover">
+            `
+            fragment.appendChild(div); 
+        })
     
     slider.appendChild(fragment);
 };

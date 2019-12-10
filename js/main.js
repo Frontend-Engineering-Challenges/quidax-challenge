@@ -22,21 +22,19 @@ const toggleNav = () => {
     document.body.classList.toggle('open-drawer');
 }
 
-const toggleAutocomplete = () => {
-    autocomplete.classList.toggle('d-none');
-}
-
 const renderCarousel = () => {
     const fragment = document.createDocumentFragment();
 
-    data.books.forEach(book => {
-        const div = document.createElement('div'); 
-        div.classList.add('carousel-cell');
-        div.innerHTML = `
-            <img src="${book.image}" alt="${book.name} Book Cover">
-        `
-        fragment.appendChild(div); 
-    })
+    data.books
+        .filter(book => book.featured)
+        .forEach(book => {
+            const div = document.createElement('div'); 
+            div.classList.add('carousel-cell');
+            div.innerHTML = `
+                <img src="${book.image}" alt="${book.name} Book Cover">
+            `
+            fragment.appendChild(div); 
+        })
     
     slider.appendChild(fragment);
 };
