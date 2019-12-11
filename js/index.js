@@ -184,16 +184,16 @@
 
 
     const controller = {
-        getAllBooks: () => {
+        getAllBooks() {
             return data.books;
         },
-        getRecentBooks: () => {
+        getRecentBooks() {
             return data.books.reverse();
         },
-        getFeaturedBooks: () => {
+        getFeaturedBooks() {
             return data.books.filter(book => book.featured)
         },
-        getSearchResults: (query) => {
+        getSearchResults(query) {
             if(query) {
                 const matched = data.searchResults.filter(result => result.match(new RegExp(`^${query}`, 'i')));
                 return matched.slice(0, 4);
@@ -205,7 +205,7 @@
 
 
     const render = {
-        toggleSearch: () => {
+        toggleSearch() {
             const topNav = document.querySelector('.top-navigation');
             const searchInput = document.querySelector('#mainSearchInput');
 
@@ -215,17 +215,17 @@
 
             topNav.classList.toggle('alt-nav');
         },
-        toggleNav: () => {
+        toggleNav() {
             document.body.classList.toggle('open-drawer');
         },
-        toggleAutoComplete: () => {
+        toggleAutoComplete() {
             const topNav = document.querySelector('.top-navigation');
             const autocomplete = document.querySelector('.autocomplete');
 
             topNav.classList.toggle('change-nav-bg');
             autocomplete.classList.toggle('d-none');
         },
-        displayFeaturedBooks: () => {
+        displayFeaturedBooks() {
             const fragment = document.createDocumentFragment();
             const slider = document.querySelector('.main-carousel');
 
@@ -241,7 +241,7 @@
             
             slider.appendChild(fragment);
         },
-        displayBookGrid: (data, parentElem) => {
+        displayBookGrid(data, parentElem) {
             const fragment = document.createDocumentFragment();
         
             data.forEach(item => {
@@ -255,7 +255,7 @@
             
                 parentElem.appendChild(fragment);
         },
-        displaySearchResults: (data, inputValueLength) => {
+        displaySearchResults(data, inputValueLength) {
             const fragment = document.createDocumentFragment();
             const autocomplete = document.querySelector('.autocomplete');
 
@@ -283,12 +283,12 @@
             autocomplete.innerHTML = '';
             autocomplete.appendChild(fragment);
         },
-        init: () => {
+        init() {
 
             // Mobile Search Toggle
             const searchToggleBtns = document.querySelectorAll('[toggle-search]'); 
             searchToggleBtns.forEach(btn => {
-                btn.addEventListener('click', render.toggleSearch);
+                btn.addEventListener('click', this.toggleSearch);
             });
             
             // Off-Canvas toggle
@@ -296,27 +296,27 @@
             const navToggleBtns = document.querySelectorAll('[toggle-nav]');
 
             navToggleBtns.forEach(btn => {
-                btn.addEventListener('click', render.toggleNav);
+                btn.addEventListener('click', this.toggleNav);
             });        
-            navOverlay.addEventListener('click', render.toggleNav);
+            navOverlay.addEventListener('click', this.toggleNav);
 
             // Search autocomplete component
             const searchInput = document.querySelector('#mainSearchInput');
             searchInput.addEventListener('focus', () => {
                 const results = controller.getSearchResults();
         
-                render.displaySearchResults(results);
-                render.toggleAutoComplete();
+                this.displaySearchResults(results);
+                this.toggleAutoComplete();
             });
             searchInput.addEventListener('input', (e) => {
                 const results = controller.getSearchResults(e.target.value);
             
-                render.displaySearchResults(results, e.target.value.length);
+                this.displaySearchResults(results, e.target.value.length);
             });
-            searchInput.addEventListener('blur', render.toggleAutoComplete);
+            searchInput.addEventListener('blur', this.toggleAutoComplete);
 
             // Function calls
-            render.displayFeaturedBooks();
+            this.displayFeaturedBooks();
             // this.displayBookGrid();
         }
     }
