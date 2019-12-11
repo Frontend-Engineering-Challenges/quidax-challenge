@@ -1,0 +1,118 @@
+// Forms
+
+.search-wrap {
+    width: 100%;
+    display: none;
+    
+    @media #{ $mobile } {
+        max-width: 350px;
+        display: flex;
+    }
+
+    @media #{ $pre-tablet } {
+        max-width: 480px;
+    }
+
+    @media #{ $tablet } {
+        max-width: 530px;
+    }
+
+    & > button {
+        margin-right: 3rem;
+        padding-left: 0;
+    }
+
+    .autocomplete {
+        width: 100%;
+        position: absolute;
+        top: 69px;
+        left: 0;
+        right: 0;
+        border: 1px solid $faintGray;
+        padding: 1.5rem 0;
+        border-top: none;
+        background: $white;
+        color: $readableGray;
+        z-index: 2; 
+        
+        @media #{ $mobile } {
+            max-width: 350px;
+            left: unset;
+            right: unset;
+            top: unset;
+        }
+    
+        @media #{ $pre-tablet } {
+            max-width: 480px;
+        }
+    
+        @media #{ $tablet } {
+            max-width: 530px;
+        }
+
+        .no-results {
+            color: $readableGray;
+            font-size: $nanofont;
+            padding: 1rem 2rem;
+            text-align: center;
+            font-style: italic;
+        }
+    }
+
+    .autocomplete-items {
+        padding: 1rem 2rem;
+        font-size: $nanofont;
+        color: $readableGray;
+        text-transform: capitalize;
+        @include truncate();
+
+        span {
+            @include truncate();
+            max-width: 320px;
+            width: 100%;
+            display: inline-block;
+        }
+
+        mark {
+            background: transparent;
+            color: $black
+        }
+
+        &:hover {
+            cursor: pointer;
+            background: $faintGray;
+            color: $black;
+        }
+    }
+
+    form {
+       width: 100%;
+       height: 40px;
+
+       input {
+            border: none;
+            outline: none;
+            height: 100%;
+            padding: 0 2rem;
+            font-size: $nanofont;
+            color: $black;
+            width: calc(100% - 40px);
+            border: 1px solid $borderGray;
+
+            &::placeholder {
+                color: $readableGray;
+                font-size: $picofont;
+            }
+        }
+
+        button {
+            height: 100%;
+            width: 40px;
+            outline: none;
+            border: 1px solid $borderGray;
+            border-left: none;
+            background: $primaryBg;
+            padding: 10px;
+        }
+    }
+}

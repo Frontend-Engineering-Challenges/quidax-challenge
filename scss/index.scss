@@ -1,15 +1,16 @@
 @import 'variables.scss';
 @import 'base.scss';
 
-@import 'layout/navigation.scss';
 @import 'layout/dashboard.scss';
 
+@import 'components/navigation.scss';
 @import 'components/texts.scss';
 @import 'components/images.scss';
 @import 'components/buttons.scss';
 @import 'components/colors.scss';
 @import 'components/slider.scss';
 @import 'components/cards.scss';
+@import 'components/forms.scss';
 @import "components/states.scss";
 
 
