@@ -18,4 +18,4 @@ To run the project;
 
 
 ## Constructive feedback
-It was a beautiful challenge. I liked the little `gotchas` that was waiting at every turn. An example is the initials behind the profile picture. My favourite part was trying to spot the little details.
+It was challenging and fun. I liked the little `gotchas` that was waiting at every turn. An example is the initials behind the profile picture. My favourite part was spotting little details like the placeholder text of the search bar that changed across screen sizes.
