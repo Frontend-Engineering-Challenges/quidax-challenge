@@ -9,6 +9,21 @@
         overflow-y: auto;
         padding: $space-sm 0 $space-md;
 
+        &::-webkit-scrollbar {
+            width: 7px;
+            background-color: $faintGray;
+        }
+    
+        &::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+            background-color: $faintGray;
+        }
+        
+        &::-webkit-scrollbar-thumb {
+            background-color: $readableGray;
+            border-radius: 50px;
+        }
+
         & > .section-wraps {
             max-width: 1200px;
             width: 100%;

@@ -166,12 +166,12 @@ ul {
     padding-left: 0; }
   .search-wrap .autocomplete {
     width: 100%;
-    padding: 2rem;
     position: absolute;
     top: 69px;
     left: 0;
     right: 0;
     border: 1px solid #f2f2f2;
+    padding: 1.5rem 0;
     border-top: none;
     background: #fff;
     color: #aaaaaa;
@@ -189,14 +189,33 @@ ul {
       .search-wrap .autocomplete {
         max-width: 530px; } }
     .search-wrap .autocomplete .autocomplete-items {
-      margin-bottom: 1.5rem;
+      padding: 1rem 2rem;
       font-size: 1.525rem;
       color: #aaaaaa;
+      text-transform: capitalize;
       text-overflow: ellipsis;
       white-space: nowrap;
       overflow: hidden; }
-      .search-wrap .autocomplete .autocomplete-items:last-of-type {
-        margin-bottom: 0; }
+      .search-wrap .autocomplete .autocomplete-items span {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        max-width: 320px;
+        width: 100%;
+        display: inline-block; }
+      .search-wrap .autocomplete .autocomplete-items mark {
+        background: transparent;
+        color: #000; }
+      .search-wrap .autocomplete .autocomplete-items:hover {
+        cursor: pointer;
+        background: #f2f2f2;
+        color: #000; }
+    .search-wrap .autocomplete .no-results {
+      color: #aaaaaa;
+      font-size: 1.525rem;
+      padding: 1rem 2rem;
+      text-align: center;
+      font-style: italic; }
   .search-wrap form {
     width: 100%;
     height: 40px; }
@@ -230,6 +249,15 @@ ul {
     height: 100%;
     overflow-y: auto;
     padding: 2.56rem 0 3.96rem; }
+    .main-layout .content::-webkit-scrollbar {
+      width: 7px;
+      background-color: #f2f2f2; }
+    .main-layout .content::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      background-color: #f2f2f2; }
+    .main-layout .content::-webkit-scrollbar-thumb {
+      background-color: #aaaaaa;
+      border-radius: 50px; }
     .main-layout .content > .section-wraps {
       max-width: 1200px;
       width: 100%;
@@ -375,7 +403,8 @@ ul {
   background: rgba(56, 180, 170, 0.6); }
 
 .main-carousel {
-  position: relative; }
+  position: relative;
+  margin-top: 2.56rem; }
 
 .flickity-viewport {
   height: auto !important;

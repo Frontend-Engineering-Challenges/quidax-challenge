@@ -9,7 +9,9 @@ const searchInput = document.querySelector('#mainSearchInput');
 const navToggleBtns = document.querySelectorAll('[toggle-nav]');
 const searchToggleBtns = document.querySelectorAll('[toggle-search]');
 
-
+const filterSearchResults = (startLetters, results) =>
+    results.filter(result => result.match(new RegExp(`^${startLetters}`, 'i'))
+)
 const toggleSearch = () => {
     topNav.classList.contains('alt-nav') ?
         searchInput.setAttribute('placeholder', 'Search books, genres, authors, etc.') :
@@ -20,6 +22,11 @@ const toggleSearch = () => {
 
 const toggleNav = () => {
     document.body.classList.toggle('open-drawer');
+}
+
+const toggleAutoComplete = () => {
+    topNav.classList.toggle('change-nav-bg');
+    autocomplete.classList.toggle('d-none');
 }
 
 const renderCarousel = () => {
@@ -39,6 +46,32 @@ const renderCarousel = () => {
     slider.appendChild(fragment);
 };
 
+const renderAutoComplete = (data, inputValueLength) => {
+    const fragment = document.createDocumentFragment();
+
+    if(data.length) {
+        data.slice(0, 4).forEach(result => {
+            const matched = `<mark>${result.slice(0, inputValueLength)}</mark>`;
+            const template = inputValueLength ? matched + result.slice(inputValueLength) : result;
+            const li = document.createElement('li'); 
+            const span = document.createElement('span'); 
+
+            li.classList.add('autocomplete-items');
+            span.innerHTML = template;
+
+            li.appendChild(span);
+            fragment.appendChild(li); 
+        })
+    } else {
+        const li = document.createElement('li'); 
+        li.classList.add('no-results');
+        li.textContent = 'No results found!'
+        fragment.appendChild(li); 
+    }
+    
+    autocomplete.innerHTML = '';
+    autocomplete.appendChild(fragment);
+};
 
 // Event Listeners
 searchToggleBtns.forEach(btn => {
@@ -50,35 +83,22 @@ navToggleBtns.forEach(btn => {
 });
 
 navOverlay.addEventListener('click', toggleNav);
+searchInput.addEventListener('focus', () => {
+    const results = data.searchResults;
 
+    renderAutoComplete(results);
+    toggleAutoComplete();
+});
 searchInput.addEventListener('input', (e) => {
-    const autocompleteClassList = autocomplete.classList;
-    const topNavClassList = topNav.classList;
+    const results = filterSearchResults(e.target.value, data.searchResults);
 
-    if(e.target.value.length >= 1) {
-        topNavClassList.add('change-nav-bg');
-        autocompleteClassList.remove('d-none');
-    } else {
-        topNavClassList.remove('change-nav-bg');
-        autocompleteClassList.add('d-none');
-    }
+    renderAutoComplete(results, e.target.value.length);
 });
-
-document.body.addEventListener('click', (e) => {
-    const inputEvt = searchInput.contains(e.target);
-    const autocompleteEvt = autocomplete.contains(e.target);
-
-    if (!autocomplete.classList.contains('d-none') && (!inputEvt || !autocompleteEvt)) {
-        searchInput.value = '';
-        topNav.classList.remove('change-nav-bg');
-        autocomplete.classList.add('d-none');
-    }
-});
+searchInput.addEventListener('blur', toggleAutoComplete);
 
 
 //Function Calls
 renderCarousel();
-
 
 //Configurations
 var flkty = new Flickity( '.main-carousel', {

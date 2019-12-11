@@ -63,3 +63,9 @@ $laptop: "only screen and (min-width: 1560px)";
     align-items: center;
     justify-content: center;
 }
+
+@mixin truncate() {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}

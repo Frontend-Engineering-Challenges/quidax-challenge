@@ -167,12 +167,12 @@
 
     .autocomplete {
         width: 100%;
-        padding: 2rem;
         position: absolute;
         top: 69px;
         left: 0;
         right: 0;
         border: 1px solid $faintGray;
+        padding: 1.5rem 0;
         border-top: none;
         background: $white;
         color: $readableGray;
@@ -194,16 +194,37 @@
         }
 
         .autocomplete-items {
-            margin-bottom: 1.5rem;
+            padding: 1rem 2rem;
             font-size: $nanofont;
             color: $readableGray;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            overflow: hidden;
+            text-transform: capitalize;
+            @include truncate();
 
-            &:last-of-type {
-                margin-bottom: 0;
+            span {
+                @include truncate();
+                max-width: 320px;
+                width: 100%;
+                display: inline-block;
             }
+
+            mark {
+                background: transparent;
+                color: $black
+            }
+
+            &:hover {
+                cursor: pointer;
+                background: $faintGray;
+                color: $black;
+            }
+        }
+
+        .no-results {
+            color: $readableGray;
+            font-size: $nanofont;
+            padding: 1rem 2rem;
+            text-align: center;
+            font-style: italic;
         }
     }
 
