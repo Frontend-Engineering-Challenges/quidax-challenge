@@ -234,6 +234,21 @@ const renderCarousel = () => {
     slider.appendChild(fragment);
 };
 
+const renderBookGrid = (data, parentElem) => {
+    const fragment = document.createDocumentFragment();
+
+    data.forEach(item => {
+            const li = document.createElement('li'); 
+            li.classList.add('carousel-cell');
+            li.innerHTML = `
+                <img src="${item.image}" alt="${item.name} Book Cover">
+            `
+            fragment.appendChild(li); 
+        })
+    
+        parentElem.appendChild(fragment);
+};
+
 const renderAutoComplete = (data, inputValueLength) => {
     const fragment = document.createDocumentFragment();
 
