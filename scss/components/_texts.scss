@@ -16,11 +16,22 @@
     font-size: $mediumfont;
 }
 
+.logotext {
+    font-size: $smallfont;
+    font-weight: 400;
+    color: $black;
+}
+
 .heading {
     font-size: $nanofont;
+    font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 3px;
-    margin: 0 $space-md;
+    margin: 0 $space-sm;
     padding-bottom: $space-xs;
     border-bottom: 1px solid $faintGray;
+
+    @media #{ $tablet } {
+        margin: 0 $space-md;
+    }
 }

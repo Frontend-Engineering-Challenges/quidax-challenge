@@ -98,10 +98,11 @@
             color: $black;
             width: calc(100% - 40px);
             border: 1px solid $borderGray;
+            font-family: $headingFont;
 
             &::placeholder {
                 color: $readableGray;
-                font-size: $picofont;
+                font-size: $nanofont;
             }
         }
 

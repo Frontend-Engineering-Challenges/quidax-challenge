@@ -1,7 +1,11 @@
 // Cards
 
 .card-wrapper {
-    margin: 0 $space-md $space-sm;
+    margin: 0 $space-sm $space-sm;
+
+    @media #{ $tablet } {
+        margin: 0 $space-md $space-sm;
+    }
 }
 
 .details-card {

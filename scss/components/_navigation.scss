@@ -112,15 +112,14 @@
 
         h3 {
             font-weight: 700;
-            margin: .5rem 0 2rem;
+            margin: .5rem 0 2.5rem;
         }
 
         a {
-            margin-bottom: .85rem;
+            margin-bottom: 1.2rem;
             @include flx-center-sb();
     
-            &.is-active,
-            &:hover {
+            &.is-active {
                 color: $primary;
             }
 
@@ -130,7 +129,7 @@
 
                 &.badge {
                     color: $white;
-                    padding: .1rem .8rem;
+                    padding: .2rem .8rem;
                     margin-right: -7px;
                     border-radius: 45%;               
                 }

@@ -14,6 +14,7 @@ body {
     font-family: $bodyFont;
     overflow: hidden;
     height: 100vh;
+    font-weight: 400;
 
     &.fixed {
         position: fixed;
