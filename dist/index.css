@@ -321,6 +321,9 @@ ul {
 .co-black {
   color: #000; }
 
+.co-white {
+  color: #fff; }
+
 .bg-primary {
   background: rgba(56, 180, 170, 0.6); }
 
@@ -382,12 +385,66 @@ ul {
       max-width: 220px;
       min-height: 330px;
       margin-right: 17px; } }
+  .carousel-cell.show-details .more-details-btn {
+    background: transparent; }
+  .carousel-cell.show-details .with-overlay {
+    opacity: 1; }
+  .carousel-cell .more-details-btn {
+    position: absolute;
+    z-index: 5;
+    top: 1rem;
+    right: 1rem;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    @media only screen and (min-width: 1140px) {
+      .carousel-cell .more-details-btn {
+        display: none; } }
+    .carousel-cell .more-details-btn img {
+      width: 75%;
+      margin-top: 3px; }
+      .carousel-cell .more-details-btn img.is-close {
+        width: 45%; }
+  .carousel-cell .with-overlay {
+    background: black;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.790821) 0%, rgba(0, 0, 0, 0.947683) 50%, black 100%);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    z-index: 2;
+    padding: 1.48rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+    width: 100%; }
+    .carousel-cell .with-overlay p,
+    .carousel-cell .with-overlay h3 {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis; }
+    @media only screen and (min-width: 800px) {
+      .carousel-cell .with-overlay {
+        padding: 2.56rem;
+        justify-content: flex-end; } }
+  @media only screen and (min-width: 1140px) {
+    .carousel-cell:hover .with-overlay {
+      opacity: 1; } }
   .carousel-cell > img {
     position: absolute;
     top: 0;
     bottom: 0;
     width: 100%;
-    height: 100%; }
+    height: 100%;
+    left: 0;
+    right: 0; }
 
 .card-wrapper {
   margin: 0 2.56rem 2.56rem; }
@@ -421,49 +478,64 @@ ul {
       .details-card:hover {
         background: #fff;
         box-shadow: -5px 0px 18px 5px rgba(0, 0, 0, 0.05); } }
-  .details-card .dc-image {
-    max-width: 105px;
-    height: 150px;
-    width: 100%; }
-  .details-card .dc-content {
-    padding: 1rem;
-    width: calc(100% - 105px);
-    padding-left: 1.5rem; }
-    .details-card .dc-content .book-tilte {
-      font-size: 1.575rem;
-      margin-bottom: .4rem; }
-  .details-card .dc-engagement {
-    margin-top: .6rem; }
-    .details-card .dc-engagement .ratings {
-      flex-basis: 60%;
-      max-width: 80px; }
-      .details-card .dc-engagement .ratings img {
-        max-width: 72px;
-        margin-top: .25rem; }
-    .details-card .dc-engagement .stats {
-      flex-basis: 40%;
-      position: relative;
-      padding-left: .5rem;
-      margin-left: .15rem; }
-      .details-card .dc-engagement .stats:before {
-        position: absolute;
-        left: 0;
-        content: '';
-        display: inline-block;
-        background: #ddd;
-        width: 1px;
-        height: 24px; }
-      .details-card .dc-engagement .stats > div {
-        padding: 0 .35rem;
-        font-weight: 600;
-        display: inline-flex;
-        align-items: center;
-        flex-direction: column; }
-        .details-card .dc-engagement .stats > div span {
-          display: inline-block; }
-          .details-card .dc-engagement .stats > div span:first-of-type {
-            width: 16px;
-            height: 16px; }
+
+.dc-image {
+  max-width: 105px;
+  height: 150px;
+  width: 100%; }
+
+.dc-content {
+  padding: 1rem;
+  width: calc(100% - 105px);
+  padding-left: 1.5rem; }
+  .dc-content .book-title {
+    font-size: 1.375rem;
+    margin-bottom: .4rem; }
+    @media only screen and (min-width: 800px) {
+      .dc-content .book-title {
+        font-size: 1.575rem; } }
+
+.dc-engagement {
+  flex-wrap: wrap; }
+  @media only screen and (min-width: 800px) {
+    .dc-engagement {
+      margin-top: .6rem; } }
+  .dc-engagement .ratings {
+    flex-basis: 60%;
+    max-width: 80px; }
+    .dc-engagement .ratings img {
+      max-width: 72px;
+      margin-top: .25rem; }
+    .dc-engagement .ratings.is-bigger {
+      max-width: 100px; }
+      .dc-engagement .ratings.is-bigger img {
+        max-width: 100px; }
+  .dc-engagement .stats {
+    flex-basis: 35%;
+    position: relative;
+    padding-left: .5rem;
+    margin-left: .15rem; }
+    .dc-engagement .stats:before {
+      position: absolute;
+      left: 0;
+      content: '';
+      display: inline-block;
+      background: #ddd;
+      width: 1px;
+      height: 24px; }
+    .dc-engagement .stats > div {
+      padding: 0 .35rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      flex-direction: column; }
+      .dc-engagement .stats > div span {
+        display: inline-block; }
+        .dc-engagement .stats > div span:first-of-type {
+          width: 16px;
+          height: 16px; }
+      .dc-engagement .stats > div.is-bigger {
+        padding: 0 .5rem; }
 
 .search-wrap {
   width: 100%;
