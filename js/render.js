@@ -37,12 +37,20 @@ const toggleMoreDetails = () => {
                         btn.innerHTML = '<img src="./assets/icons/ellipses.svg" class="width-100-pc height-100-pc" alt="Ellipses Icon">';
                         cell.classList.remove('show-details');
                     }
-                } else {
-                    cell.classList.remove('show-details');
                 }
             })
         });
     });
+
+    carouselCells.forEach(cell => {
+        cell.addEventListener('click', (e) => {
+            if(cell.contains(e.target)) {
+                if(cell.classList.contains('show-details')) {
+                    cell.classList.remove('show-details');
+                }
+            }
+        });
+    })
 }
 
 const toggleNav = () => {
