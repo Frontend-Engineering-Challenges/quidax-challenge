@@ -1,9 +1,11 @@
 const controller = require('./controller');
 
 
+const allBooks = document.querySelector('#allBooks');
 const slider = document.querySelector('.main-carousel');
 const topNav = document.querySelector('.top-navigation');
 const navOverlay = document.querySelector('.nav-overlay');
+const recentBooks = document.querySelector('#recentBooks');
 const autocomplete = document.querySelector('.autocomplete');
 const searchInput = document.querySelector('#mainSearchInput');
 const navToggleBtns = document.querySelectorAll('[toggle-nav]');
@@ -48,9 +50,33 @@ const displayBookGrid = (data, parentElem) => {
 
     data.forEach(item => {
             const li = document.createElement('li'); 
-            li.classList.add('carousel-cell');
+            li.classList.add('details-card');
             li.innerHTML = `
-                <img src="${item.image}" alt="${item.name} Book Cover">
+                <div class="dc-image">
+                    <img src="${item.image}" class="width-100-pc height-100-pc" alt="${item.name} Book Cover">
+                </div>
+                <div class="dc-content">
+                    <p class="picotext mb-1 ${item.available ? 'co-primary' : 'co-red'}">${item.available ? 'Available' : 'Borrowed Out'}</p>
+                    <h3 class="co-black book-tilte">${item.name}</h3>
+                    <p class="picotext co-black">${item.author.join(', ')} ${item.year ? "- " + item.year : ''}</p>
+                    <p class="picotext co-black">${item.genre.join(', ')}</p>
+                    <div class="d-flx al-i-c dc-engagement">
+                        <div class="ratings">
+                            <p class="picotext co-black">Ratings: ${Number.parseFloat(item.ratings).toFixed(1)}</p>
+                            <img src="./assets/icons/ratings.svg"  alt="Ratings Icon">
+                        </div>
+                        <div class="d-flx al-i-c stats">
+                            <div>
+                                <span><img src="./assets/icons/users.svg" class="width-100-pc height-100-pc" alt="Users Icon"></span>
+                                <span>${item.borrowed}</span>
+                            </div>
+                            <div>
+                                <span><img src="./assets/icons/love.svg" class="width-100-pc height-100-pc" alt="Love Icon"></span>
+                                <span>${item.likes}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             `
             fragment.appendChild(li); 
         })
@@ -116,5 +142,6 @@ module.exports.init = () => {
 
     // Function calls
     displayFeaturedBooks();
-    //displayBookGrid();
+    displayBookGrid(controller.getRecentBooks(), recentBooks);
+    displayBookGrid(controller.getAllBooks(), allBooks);
 }

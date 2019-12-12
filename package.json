@@ -6,7 +6,7 @@
   "scripts": {
     "start": "live-server",
     "scss": "node-sass --watch scss -o dist",
-    "build": "npm run scss && browserify ./js/index.js > dist/index.js"
+    "build": "node-sass scss -o dist && browserify ./js/index.js > dist/index.js"
   },
   "repository": {
     "type": "git",

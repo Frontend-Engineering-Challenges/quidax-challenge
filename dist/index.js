@@ -4,7 +4,7 @@ const data = require('./data');
 
 const getAllBooks = () => data.books;
 
-const getRecentBooks = () => data.books.reverse();
+const getRecentBooks = () => data.books.reverse().slice(0, 5);
 
 const getFeaturedBooks = () => data.books.filter(book => book.featured);
 
@@ -170,11 +170,11 @@ module.exports = {
             featured: true
         },
         {
-            name: 'Built To Last',
-            image: '../assets/images/built-to-last.png',
-            available: false,
-            author: ["Jim Collins", "Jerry I. Porras"],
-            year: 2001,
+            name: 'Big Magic',
+            image: '../assets/images/big-magic.png',
+            available: true,
+            author: ["Elizabeth Gilbert"],
+            year: 2014,
             genre: ["Business", "Entrepreneurship"],
             labels: ["Creative", "Self-help"],
             ratings: 4.0,
@@ -183,11 +183,11 @@ module.exports = {
             featured: false
         },
         {
-            name: 'The Lean Startup',
-            image: '../assets/images/the-lean-startup.png',
+            name: 'Effective Python',
+            image: '../assets/images/effective-python.png',
             available: true,
-            author: ["Eric Reis"],
-            year: 2005,
+            author: ["Diomidis Spinellis"],
+            year: null,
             genre: ["Motivational"],
             labels: ["Creative", "Self-help"],
             ratings: 4.0,
@@ -196,12 +196,12 @@ module.exports = {
             featured: false
         },
         {
-            name: 'The Effective Engineer',
-            image: '../assets/images/the-effective-engineer.png',
-            available: true,
-            author: ["Edmond Lau"],
-            year: 2009,
-            genre: ["Motivational"],
+            name: 'Built To Last',
+            image: '../assets/images/built-to-last.png',
+            available: false,
+            author: ["Jim Collins", "Jerry I. Porras"],
+            year: 2001,
+            genre: ["Business", "Entrepreneurship"],
             labels: ["Creative", "Self-help"],
             ratings: 4.0,
             borrowed: 31,
@@ -231,9 +231,11 @@ var flkty = new Flickity( '.main-carousel', {
 const controller = require('./controller');
 
 
+const allBooks = document.querySelector('#allBooks');
 const slider = document.querySelector('.main-carousel');
 const topNav = document.querySelector('.top-navigation');
 const navOverlay = document.querySelector('.nav-overlay');
+const recentBooks = document.querySelector('#recentBooks');
 const autocomplete = document.querySelector('.autocomplete');
 const searchInput = document.querySelector('#mainSearchInput');
 const navToggleBtns = document.querySelectorAll('[toggle-nav]');
@@ -278,9 +280,33 @@ const displayBookGrid = (data, parentElem) => {
 
     data.forEach(item => {
             const li = document.createElement('li'); 
-            li.classList.add('carousel-cell');
+            li.classList.add('details-card');
             li.innerHTML = `
-                <img src="${item.image}" alt="${item.name} Book Cover">
+                <div class="dc-image">
+                    <img src="${item.image}" class="width-100-pc height-100-pc" alt="${item.name} Book Cover">
+                </div>
+                <div class="dc-content">
+                    <p class="picotext mb-1 ${item.available ? 'co-primary' : 'co-red'}">${item.available ? 'Available' : 'Borrowed Out'}</p>
+                    <h3 class="co-black book-tilte">${item.name}</h3>
+                    <p class="picotext co-black">${item.author.join(', ')} ${item.year ? "- " + item.year : ''}</p>
+                    <p class="picotext co-black">${item.genre.join(', ')}</p>
+                    <div class="d-flx al-i-c dc-engagement">
+                        <div class="ratings">
+                            <p class="picotext co-black">Ratings: ${Number.parseFloat(item.ratings).toFixed(1)}</p>
+                            <img src="./assets/icons/ratings.svg"  alt="Ratings Icon">
+                        </div>
+                        <div class="d-flx al-i-c stats">
+                            <div>
+                                <span><img src="./assets/icons/users.svg" class="width-100-pc height-100-pc" alt="Users Icon"></span>
+                                <span>${item.borrowed}</span>
+                            </div>
+                            <div>
+                                <span><img src="./assets/icons/love.svg" class="width-100-pc height-100-pc" alt="Love Icon"></span>
+                                <span>${item.likes}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             `
             fragment.appendChild(li); 
         })
@@ -346,7 +372,8 @@ module.exports.init = () => {
 
     // Function calls
     displayFeaturedBooks();
-    //displayBookGrid();
+    displayBookGrid(controller.getRecentBooks(), recentBooks);
+    displayBookGrid(controller.getAllBooks(), allBooks);
 }
 
 },{"./controller":1}]},{},[3]);

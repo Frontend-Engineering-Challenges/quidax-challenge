@@ -27,19 +27,28 @@
         }
 
         & > .section-wraps {
-            max-width: 1200px;
+            max-width: 500px;
             width: 100%;
             margin: 0 auto;
             position: relative;
             margin-top: $space-lg;
 
+            @media #{ $pre-mobile } {
+                max-width: 650px;
+            }
+
+            @media #{ $pre-tablet } {
+                max-width: 1200px;
+            }
+
             &:first-of-type {
                 margin-top: 0;
                 margin-bottom: 8rem;
+                max-width: 1200px;
             }
 
             &:last-of-type {
-                margin-bottom: $space-md;
+                padding-bottom: 8rem;
             }
         }
     }

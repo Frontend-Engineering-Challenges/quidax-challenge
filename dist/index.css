@@ -56,16 +56,23 @@ ul {
       background-color: #aaaaaa;
       border-radius: 50px; }
     .main-layout .content > .section-wraps {
-      max-width: 1200px;
+      max-width: 500px;
       width: 100%;
       margin: 0 auto;
       position: relative;
       margin-top: 4.72rem; }
+      @media only screen and (min-width: 550px) {
+        .main-layout .content > .section-wraps {
+          max-width: 650px; } }
+      @media only screen and (min-width: 800px) {
+        .main-layout .content > .section-wraps {
+          max-width: 1200px; } }
       .main-layout .content > .section-wraps:first-of-type {
         margin-top: 0;
-        margin-bottom: 8rem; }
+        margin-bottom: 8rem;
+        max-width: 1200px; }
       .main-layout .content > .section-wraps:last-of-type {
-        margin-bottom: 3.96rem; }
+        padding-bottom: 8rem; }
 
 .top-navigation {
   min-height: 70px;
@@ -309,7 +316,7 @@ ul {
   color: #95fe22; }
 
 .co-red {
-  color: #95fe22; }
+  color: #e91313; }
 
 .co-black {
   color: #000; }
@@ -394,34 +401,69 @@ ul {
   display: inline-flex;
   align-items: center;
   cursor: pointer; }
-  .details-card:nth-of-type(1n+4) {
-    display: none; }
-    @media only screen and (min-width: 550px) {
-      .details-card:nth-of-type(1n+4) {
-        display: inline-flex; } }
-  @media only screen and (min-width: 550px) {
-    .details-card {
-      width: calc(50% - 20px);
-      margin-right: 20px; }
-      .details-card:nth-of-type(2n) {
-        margin-right: 0; } }
   @media only screen and (min-width: 800px) {
     .details-card {
-      width: calc(33.33% - 20px); }
+      width: calc(50% - 10px);
+      margin-right: 10px; }
+      .details-card:nth-of-type(2n) {
+        margin-right: 0; } }
+  @media only screen and (min-width: 1280px) {
+    .details-card {
+      width: calc(33.33% - 20px);
+      margin-right: 20px; }
       .details-card:nth-of-type(2n) {
         margin-right: 20px; }
       .details-card:nth-of-type(3n) {
         margin-right: 0; } }
-  @media only screen and (min-width: 1140px) {
-    .details-card:hover {
-      background: #fff;
-      box-shadow: -5px 0px 18px 5px rgba(0, 0, 0, 0.05); } }
+  @media only screen and (min-width: 1280px) {
+    .details-card {
+      transition: box-shadow .25s; }
+      .details-card:hover {
+        background: #fff;
+        box-shadow: -5px 0px 18px 5px rgba(0, 0, 0, 0.05); } }
   .details-card .dc-image {
     max-width: 105px;
-    height: 150px; }
+    height: 150px;
+    width: 100%; }
   .details-card .dc-content {
     padding: 1rem;
+    width: calc(100% - 105px);
     padding-left: 1.5rem; }
+    .details-card .dc-content .book-tilte {
+      font-size: 1.575rem;
+      margin-bottom: .4rem; }
+  .details-card .dc-engagement {
+    margin-top: .6rem; }
+    .details-card .dc-engagement .ratings {
+      flex-basis: 60%;
+      max-width: 80px; }
+      .details-card .dc-engagement .ratings img {
+        max-width: 72px;
+        margin-top: .25rem; }
+    .details-card .dc-engagement .stats {
+      flex-basis: 40%;
+      position: relative;
+      padding-left: .5rem;
+      margin-left: .15rem; }
+      .details-card .dc-engagement .stats:before {
+        position: absolute;
+        left: 0;
+        content: '';
+        display: inline-block;
+        background: #ddd;
+        width: 1px;
+        height: 24px; }
+      .details-card .dc-engagement .stats > div {
+        padding: 0 .35rem;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        flex-direction: column; }
+        .details-card .dc-engagement .stats > div span {
+          display: inline-block; }
+          .details-card .dc-engagement .stats > div span:first-of-type {
+            width: 16px;
+            height: 16px; }
 
 .search-wrap {
   width: 100%;
@@ -537,6 +579,22 @@ ul {
 @media only screen and (max-width: 649px) {
   .change-nav-bg {
     background: #f2f2f2; } }
+
+.display-three .details-card {
+  display: none; }
+  .display-three .details-card:nth-child(-n+3) {
+    display: inline-flex; }
+  @media only screen and (min-width: 550px) {
+    .display-three .details-card {
+      display: inline-flex; } }
+
+.display-five .details-card {
+  display: none; }
+  .display-five .details-card:nth-child(-n+5) {
+    display: inline-flex; }
+  @media only screen and (min-width: 550px) {
+    .display-five .details-card {
+      display: inline-flex; } }
 
 .absolute-zero {
   position: absolute;

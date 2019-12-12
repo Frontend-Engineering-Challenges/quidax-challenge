@@ -3,7 +3,7 @@ const data = require('./data');
 
 const getAllBooks = () => data.books;
 
-const getRecentBooks = () => data.books.reverse();
+const getRecentBooks = () => data.books.reverse().slice(0, 5);
 
 const getFeaturedBooks = () => data.books.filter(book => book.featured);
 

@@ -39,3 +39,30 @@
         background: $faintGray;
     }
 }
+
+//Change size of list items shown on mobile
+.display-three { 
+    .details-card {
+        display: none;
+        &:nth-child(-n+3) {
+            display: inline-flex;
+        }
+
+        @media #{ $pre-mobile } {
+            display: inline-flex; 
+        }
+    }
+}
+
+.display-five {
+    .details-card {
+        display: none;
+        &:nth-child(-n+5) {
+            display: inline-flex;
+        }
+
+        @media #{ $pre-mobile } {
+            display: inline-flex; 
+        }
+    }
+}

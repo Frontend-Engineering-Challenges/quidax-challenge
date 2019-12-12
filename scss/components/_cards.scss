@@ -1,0 +1,111 @@
+// Cards
+
+.card-wrapper {
+    margin: 0 $space-sm $space-sm;
+
+    @media #{ $tablet } {
+        margin: 0 $space-md $space-sm;
+    }
+}
+
+.details-card {
+    width: 100%;
+    margin-top: $space-sm;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+
+    @media #{ $pre-tablet } {
+        width: calc(50% - 10px);
+        margin-right: 10px;
+
+        &:nth-of-type(2n) {
+            margin-right: 0;
+        }
+    }
+
+    @media #{ $laptop } {
+        width: calc(33.33% - 20px);
+        margin-right: 20px;
+
+        &:nth-of-type(2n) {
+            margin-right: 20px;
+        }
+
+        &:nth-of-type(3n) {
+            margin-right: 0;
+        }
+    }
+
+    @media #{ $laptop } {
+        transition: box-shadow .25s;
+
+        &:hover {
+            background: $white;
+            box-shadow: -5px 0px 18px 5px rgba(0, 0, 0, 0.05);
+        }
+    }
+
+    .dc-image {
+        max-width: 105px;
+        height: 150px;
+        width: 100%;
+    }
+
+    .dc-content {
+        padding: 1rem;
+        width: calc(100% - 105px);
+        padding-left: 1.5rem;
+
+        .book-tilte {
+            font-size: 1.575rem;
+            margin-bottom: .4rem;
+        }
+    }
+
+    .dc-engagement {
+        margin-top: .6rem;
+        .ratings {
+            flex-basis: 60%;
+            max-width: 80px;        
+
+            img {
+                max-width: 72px;
+                margin-top: .25rem;
+            }
+        }
+        .stats {
+            flex-basis: 40%;
+            position: relative;
+            padding-left: .5rem;
+            margin-left: .15rem;
+
+            &:before {
+                position: absolute;
+                left: 0;
+                content: '';
+                display: inline-block;
+                background: #ddd;
+                width: 1px;
+                height: 24px;
+            }
+
+            & > div {
+                padding: 0 .35rem;
+                font-weight: 600;
+                display: inline-flex;
+                align-items: center;
+                flex-direction: column;
+
+                span {
+                    display: inline-block;
+
+                    &:first-of-type {
+                        width: 16px;
+                        height: 16px;
+                    }
+                }
+            }
+        }
+    }
+}
